@@ -1,0 +1,30 @@
+.ask{
+    background-image: linear-gradient(
+    to left ,#FFEDE1 0% ,#ffffff 90%);
+    display: flex;
+    justify-content: space-between;
+    height: 730px;
+    grid-template-columns: 0fr 1000px 0fr;
+    grid-template-rows: 730px 0px; 
+    font-size: 40px;
+    justify-content: center;
+    align-items: top;
+}
+
+.q{
+    color: rgb(156, 33, 140);
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 100px;
+  }
+  
+  #moveBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100px;
+  }
