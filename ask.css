@@ -3,7 +3,7 @@
     to left ,#FFEDE1 0% ,#ffffff 90%);
     display: flex;
     justify-content: space-between;
-    height: 730px;
+    height: 500px;
     grid-template-columns: 0fr 1000px 0fr;
     grid-template-rows: 730px 0px; 
     font-size: 40px;
