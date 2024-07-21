@@ -1,17 +1,131 @@
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html lang="en">
     <head>
-        <title>action</title>
-        <link rel="stylesheet" href="ask.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Action</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body, html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .ask {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                padding: 20px;
+                position: relative;
+                overflow: hidden;
+                color: #fff;
+                text-align: center;
+            }
+
+            .q {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            }
+
+            .btn {
+                margin: 10px;
+                padding: 15px 30px;
+                border-radius: 50px;
+                font-size: 1.2em;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+            #yes-button {
+                background-color: #007bff;
+                border: none;
+                color: white;
+            }
+
+            #yes-button:hover {
+                background-color: #0056b3;
+                transform: scale(1.05);
+            }
+
+            #no-button {
+                background-color: #dc3545;
+                border: none;
+                color: white;
+            }
+
+            #no-button:hover {
+                background-color: #c82333;
+                transform: scale(1.05);
+            }
+
+            /* Animated Gradient Background */
+            .background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background: linear-gradient(45deg, #FF6F61, #D4A5A5, #61C0BF, #6B4226);
+                background-size: 400% 400%;
+                animation: gradientBackground 15s ease infinite;
+            }
+
+            @keyframes gradientBackground {
+                0% { background-position: 0% 0%; }
+                50% { background-position: 100% 100%; }
+                100% { background-position: 0% 0%; }
+            }
+        </style>
     </head>
     <body class="ask">
-        
+        <div class="background"></div>
         <div>
-            <p class="q">Do You Love physics?</p>
-            <button id="yes-button" onclick="window.location.href='https://yamenxy.github.io/Social_media_2/';">Yes</button>
-            <button id="no-button">No</button>
-          </div>
-        
-          <script  src="ask.js" ></script>
+            <p class="q">Do You Love Physics?</p>
+            <div class="btn-group">
+                <button id="yes-button" class="btn">Yes</button>
+                <button id="no-button" class="btn">No</button>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            document.getElementById('yes-button').addEventListener('click', function() {
+                window.location.href = 'https://yamenxy.github.io/Social_media_2/';
+            });
+        </script>
+        <script>
+            var noButton = document.getElementById("no-button");
+
+            noButton.addEventListener("click", moveButton);
+
+            function moveButton() {
+                var container = document.querySelector('.btn-group');
+                var containerWidth = container.clientWidth;
+                var containerHeight = container.clientHeight;
+
+                var buttonWidth = noButton.offsetWidth;
+                var buttonHeight = noButton.offsetHeight;
+
+                var rangeX = containerWidth * 0.8;
+                var rangeY = containerHeight * 0.8;
+
+                var maxX = rangeX - buttonWidth;
+                var maxY = rangeY - buttonHeight;
+
+                var randomX = Math.floor(Math.random() * maxX);
+                var randomY = Math.floor(Math.random() * maxY);
+
+                noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            }
+        </script>
     </body>
-</html>
+    </html>
